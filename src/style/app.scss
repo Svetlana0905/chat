@@ -1,0 +1,45 @@
+@import "./null.scss";
+@import "./shared.scss";
+@import "./fonts.scss";
+body {
+  font-family: Montserrat;
+}
+#root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.title {
+  font-size: 3rem;
+  font-family: "PlayfairItalic";
+}
+.header{
+  background: red;
+  &__inner {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    padding: 2em 1em;
+    width: 100%;
+  }
+}
+.active--link {
+  color: black;
+}
+.white {
+  color: white;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
