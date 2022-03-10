@@ -1,19 +1,18 @@
-// import { useLocation } from 'react-router-dom'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
-import { addUser } from '../store/userSlice'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { Form } from '../components/Form'
+import { addUser } from '../store/userSlice'
 import { useContext } from 'react'
 import { AuthContext } from '../containers/AuthProvider'
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
   // const navigate = useNavigate()
   // const location = useLocation()
   const dispatch = useDispatch()
 
-  const userLogin = (email, password) => {
+  const userRegister = (email, password) => {
     const auth = getAuth()
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(
           addUser({
@@ -29,8 +28,9 @@ export const LoginPage = () => {
   // const fromPage = location.state?.from?.pathname || '/'
   return (
     <div>
-      <p>Страница залогиниться, войти</p>
-      <Form btnText="register" handleClick={userLogin} />
+      <div>Register page</div>
+      <p>Страница регистрации</p>
+      <Form btnText="login" handleClick={userRegister} />
       {/* {fromPage} */}
     </div>
   )

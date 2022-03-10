@@ -1,9 +1,11 @@
 import { Navigate, useLocation } from 'react-router-dom'
+import { useAuth } from './hooks/useAuth'
 
 export const PrivatedAuth = ({ children }) => {
   const location = useLocation()
-  const auth = true
-  if (!auth) {
+  const { isAuth } = useAuth()
+
+  if (!isAuth) {
     return <Navigate to="/login" state={{ from: location }} />
   }
   return children
