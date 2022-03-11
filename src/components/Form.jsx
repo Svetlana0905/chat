@@ -1,3 +1,4 @@
+import '../style/form.scss'
 import { useState } from 'react'
 
 export const Form = ({ btnText, handleClick }) => {
@@ -21,16 +22,28 @@ export const Form = ({ btnText, handleClick }) => {
     setPassword('')
   }
   return (
-    <form onSubmit={addUser}>
-      <label>
-        <span>email</span>
-        <input type="email" value={email} onChange={getEmail} />
+    <form onSubmit={addUser} className="form">
+      <label className="form__label">
+        <span className="form__span">email</span>
+        <input
+          type="email"
+          value={email}
+          onChange={getEmail}
+          className="form__input"
+        />
       </label>
-      <label>
-        <span>password</span>
-        <input type="password" value={password} onChange={getPassword} />
+      <label className="form__label">
+        <span className="form__span">password</span>
+        <input
+          type="password"
+          value={password}
+          onChange={getPassword}
+          className="form__input"
+        />
       </label>
-      <button type="submit">{btnText}</button>
+      <button type="submit" className="form__btn">
+        {btnText}
+      </button>
     </form>
   )
 }

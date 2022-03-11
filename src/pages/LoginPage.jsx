@@ -1,5 +1,5 @@
-// import { useLocation } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../store/userSlice'
 import { Form } from '../components/Form'
@@ -7,8 +7,9 @@ import { useContext } from 'react'
 import { AuthContext } from '../containers/AuthProvider'
 
 export const LoginPage = () => {
-  // const navigate = useNavigate()
-  // const location = useLocation()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const fromPage = location.state?.from?.pathname || '/'
   const dispatch = useDispatch()
 
   const userLogin = (email, password) => {
@@ -22,16 +23,17 @@ export const LoginPage = () => {
             id: user.uid
           })
         )
+        navigate(fromPage)
       })
       .catch(console.error)
   }
   console.log(useContext(AuthContext))
-  // const fromPage = location.state?.from?.pathname || '/'
   return (
     <div>
-      <p>Страница залогиниться, войти</p>
-      <Form btnText="register" handleClick={userLogin} />
-      {/* {fromPage} */}
+      <h3>Войти</h3>
+      <Form btnText="Войти" handleClick={userLogin} />
+      <h3>Не зарегистрированы?</h3>
+      <Link to="register">Зарегистрироваться</Link>
     </div>
   )
 }

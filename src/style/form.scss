@@ -1,0 +1,29 @@
+@import "../style/app.scss";
+.form {
+   display: flex;
+   flex-direction: column;
+   padding: 0.6em 0;
+   &__label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+   }
+   &__span {
+      margin-bottom: 0.2em;
+      font-size: 0.9rem;
+   }
+   &__input {
+      width: 250px;
+      padding: 0.4em;
+      font-size: 1rem;
+   }
+   &__btn {
+      width: 220px;
+      padding: 0.4em 0.6em;
+      font-family: 'Montserrat';
+      font-size: 0.9rem;
+      background: $white;
+      border: 1px solid $dark75;
+      border-radius: 0.4em;
+   }
+}
