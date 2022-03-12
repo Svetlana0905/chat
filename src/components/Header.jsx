@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { removeUser } from '../store/userSlice'
 import { useAuth } from '../containers/hooks/useAuth'
+import { HeaderLogo } from '../components/HeaderLogo'
 
 const setActive = ({ isActive }) => (isActive ? 'active--link' : 'nav--link')
 
@@ -13,6 +14,7 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header__inner">
+          <HeaderLogo />
           <NavLink to="/" className={setActive}>
             Домой
           </NavLink>
@@ -24,7 +26,11 @@ export const Header = () => {
               <NavLink to="profile" className={setActive}>
                 Личный кабинет
               </NavLink>
-              <button onClick={() => dispatch(removeUser())}>Выйти</button>
+              <button
+                className="log--out"
+                onClick={() => dispatch(removeUser())}>
+                Выйти
+              </button>
             </>
           ) : (
             <>

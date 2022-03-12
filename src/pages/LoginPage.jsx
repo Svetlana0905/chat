@@ -33,7 +33,9 @@ export const LoginPage = () => {
       <h3>Войти</h3>
       <Form btnText="Войти" handleClick={userLogin} />
       <h3>Не зарегистрированы?</h3>
-      <Link to="register">Зарегистрироваться</Link>
+      <Link to="/register" className="link--btn">
+        Зарегистрироваться
+      </Link>
     </div>
   )
 }

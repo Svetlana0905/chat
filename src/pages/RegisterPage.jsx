@@ -30,8 +30,7 @@ export const RegisterPage = () => {
   console.log(useContext(AuthContext))
   return (
     <div>
-      <div>Register page</div>
-      <p>Страница регистрации</p>
+      <h3>Страница регистрации</h3>
       <Form btnText="Зарегистрироваться" handleClick={userRegister} />
       {fromPage}
     </div>

@@ -1,49 +1,56 @@
 import '../style/form.scss'
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 export const Form = ({ btnText, handleClick }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid }
+  } = useForm({
+    mode: 'onChange'
+  })
 
-  const getEmail = (e) => {
-    const valueEmail = e.target.value.toLowerCase().trim()
-    setEmail(valueEmail)
+  const onSubmit = (data) => {
+    handleClick(data.email, data.password)
+    reset()
   }
-  const getPassword = (e) => {
-    const valuePassword = e.target.value.toLowerCase().trim()
-    setPassword(valuePassword)
-  }
-  const addUser = (e) => {
-    e.preventDefault()
-    if (email && password) {
-      handleClick(email, password)
-    }
-    setEmail('')
-    setPassword('')
-  }
+
   return (
-    <form onSubmit={addUser} className="form">
+    <form onSubmit={handleSubmit(onSubmit)} className="form">
       <label className="form__label">
-        <span className="form__span">email</span>
+        <span className="form__span">email *</span>
         <input
           type="email"
-          value={email}
-          onChange={getEmail}
           className="form__input"
+          {...register('email', { required: 'Поле обязательно к заполнению' })}
         />
+        <div className="form__error">
+          {errors?.email && <p>{errors?.email?.message || 'Error email'}</p>}
+        </div>
       </label>
       <label className="form__label">
-        <span className="form__span">password</span>
+        <span className="form__span">password *</span>
         <input
           type="password"
-          value={password}
-          onChange={getPassword}
           className="form__input"
+          {...register('password', {
+            required: 'Поле обязательно к заполнению'
+          })}
         />
+        <div className="form__error">
+          {errors?.password && (
+            <p>{errors?.password?.message || 'Error password'}</p>
+          )}
+        </div>
       </label>
-      <button type="submit" className="form__btn">
-        {btnText}
-      </button>
+
+      <input
+        className="form__btn"
+        type="submit"
+        disabled={!isValid}
+        value={btnText}
+      />
     </form>
   )
 }

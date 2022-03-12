@@ -3,6 +3,7 @@
 @import "./fonts.scss";
 body {
   font-family: Montserrat;
+  color: $dark100;;
 }
 #root {
   position: relative;
@@ -18,16 +19,30 @@ main {
   margin: 0 auto;
   padding: 1em;
 }
+h3 {
+  padding: 0.8em 0;
+}
 .title {
   font-size: 3rem;
   font-family: "PlayfairItalic";
 }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+.link--btn {
+  display: inline-block;
+  width: 220px;
+  padding: 0.7em 0.6em;
+  text-align: center;
+  font-family: 'Montserrat';
+  color: $dark100;
+  font-size: 0.9rem;
+  background: $orang;
+  border: 1px solid $darkorang;
+  border-radius: 0.4em;
+  box-shadow: $shadow20;
+  transition: all 0.3s ease-in-out;
+  &:hover, &:focus{
+  color: $white;
+  background: $darkorang;
+  border: 1px solid $orang;
+  box-shadow: $shadow50;
+  }
+}

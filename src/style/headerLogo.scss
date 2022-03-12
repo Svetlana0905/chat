@@ -1,0 +1,60 @@
+.logo {
+   width: 45px;
+   height: 60px;
+   position: relative;
+   &__one {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      will-change: animation;
+      animation: logo-one 3s ease-out forwards, logo-one-right 3s ease-out forwards;
+   }
+   &__two {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      animation: logo-two 3s ease-out both 3s;
+   }
+}
+@keyframes logo-one {
+   0% {
+      top: -150%;
+   }
+   20% {
+      bottom: 0;
+   }
+   50% {
+      bottom: 75%;
+   }
+   100% {
+      bottom: 25%;
+   }
+}
+@keyframes logo-one-right {
+   0% {
+       right: 0;
+   }
+   10% {
+      right: 0;
+   }
+   50% {
+      right: 0;
+   }
+   100% {
+      right: 0;
+   }
+}
+@keyframes logo-two {
+   0% {
+      top: -150%;
+   }
+   10% {
+      bottom: 0;
+   }
+   50% {
+      bottom: 75%;
+   }
+   100% {
+      bottom: 0;
+   }
+}

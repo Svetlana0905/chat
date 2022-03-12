@@ -1,47 +1,57 @@
-@import "../style/app.scss";
-.header{
+@import '../style/app.scss';
+.header {
   background: $dark75;
   &__inner {
     display: flex;
     gap: 2em;
     align-items: center;
-    padding: 1em 2em;
+    padding: 0 2em;
     width: 100%;
   }
 }
 .nav--link {
-   position: relative;
-   color: $white;
-   background-position: 0;
- }
- .nav--link:hover::before{
-   width: 100%;
- }
- .active--link {
-   position: relative;
-   background-image: linear-gradient(
-     to right,
-     $white,
-     $dark50 50%,
-     $white
-   );
-   background-size: 200% 100%;
-   background-position: -100%;
-   display: inline-block;
-   padding: 4px 0;
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   border-bottom: 2px solid $dark25;
-   transition: background-position 0.3s ease-in-out;
- }
- .nav--link::before{
-   content: '';
- display: block;
- position: absolute;
- bottom: -4px;
- left: 0;
- width: 0;
- height: 2px;
- background: $dark25;
- transition: all 0.3s ease-in-out;
- }
+  position: relative;
+  color: $white;
+  background-position: 0;
+}
+.nav--link:hover::before,
+.log--out:hover::before {
+  width: 100%;
+}
+.active--link,
+.nav--link:focus-visible {
+  position: relative;
+  background-image: linear-gradient(to right, $white, $dark50 50%, $white);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 4px 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid $dark25;
+  transition: background-position 0.3s ease-in-out;
+}
+.nav--link::before,
+.log--out::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: $dark25;
+  transition: all 0.3s ease-in-out;
+}
+.log--out {
+  position: relative;
+  padding-right: 30px;
+  font-family: Montserrat;
+  font-size: 1em;
+  color: $white;
+  background-color: transparent;
+  background-image: url(../img/btn_out.svg);
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  border: none;
+}

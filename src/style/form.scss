@@ -3,6 +3,7 @@
    display: flex;
    flex-direction: column;
    padding: 0.6em 0;
+   margin-bottom: 1em;
    &__label {
       display: flex;
       flex-direction: column;
@@ -16,14 +17,42 @@
       width: 250px;
       padding: 0.4em;
       font-size: 1rem;
+      border: 1px solid $darkorang;
+      border-radius: 0.4em;
+      &:hover, &:focus{
+      border: 1px solid $orang;
+      box-shadow: $shadow20;
+      }
    }
    &__btn {
       width: 220px;
-      padding: 0.4em 0.6em;
+      padding: 0.5em 0.6em;
       font-family: 'Montserrat';
       font-size: 0.9rem;
-      background: $white;
-      border: 1px solid $dark75;
+      background: $orang;
+      border: 1px solid $darkorang;
       border-radius: 0.4em;
+      box-shadow: $shadow20;
+      transition: all 0.3s ease-in-out;
+      &:hover, &:focus{
+      color: $white;
+      background: $darkorang;
+      border: 1px solid $orang;
+      box-shadow: $shadow50;
+      }
+      &:disabled {
+         color: $dark50;
+         background: rgba(255, 255, 255, 0.52);
+         border: 1px solid rgba(255, 255, 255, 0.52);
+         cursor: not-allowed;
+      }
+   }
+   &__error {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 0 0 1.2em;
+      color: rgb(255, 40, 40, 0.74);
+      font-size: 0.9rem;
    }
 }
